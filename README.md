@@ -6,6 +6,10 @@
 
 This version is the end result of the first video. Any next part will also be committed in main, and extend this current version.
 
+## See what we build so far
+
+[Visit the preview of what we build here.](https://rebuilding-linear.vercel.app/)
+
 ## Video links 📺
 
 * [Part One](https://youtu.be/ls_b-1a0ZUc): Setting up the project, building the header, main navigation, part of the hero component and the footer.
