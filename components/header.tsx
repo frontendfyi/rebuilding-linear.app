@@ -26,7 +26,7 @@ export const Header = () => {
         >
           <nav
             className={classNames(
-              "fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:bg-transparent md:opacity-100",
+              "fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:overflow-hidden md:bg-transparent md:opacity-100",
               hamburgerMenuIsOpen ? "opacity-100" : "opacity-0"
             )}
           >
