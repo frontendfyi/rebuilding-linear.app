@@ -30,7 +30,7 @@ export const CopyrightLinearBanner = () => {
           <strong>⚠️ NOTE:</strong> I am not affiliated with Linear in any way.
           All images, the name of Linear and their logo are copyrighted by
           Linear. This website is only intended for educational purposes and as
-          a humage to Linear's great UI work 🙏
+          a homage to Linear's great UI work 🙏
         </p>
         <p>
           <Button href="https://linear.app" size="large" target="_blank">
