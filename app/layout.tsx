@@ -1,3 +1,4 @@
+import { AnalyticsWrapper } from "../components/analytics";
 import { Container } from "../components/container";
 import { CopyrightLinearBanner } from "../components/copyright-linear-banner";
 import { Footer } from "../components/footer";
@@ -20,6 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Footer />
           <CopyrightLinearBanner />
         </div>
+        <AnalyticsWrapper />
       </body>
     </html>
   );

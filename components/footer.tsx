@@ -64,11 +64,14 @@ export const Footer = () => (
       </div>
       <div className="flex flex-wrap">
         {footerLinks.map((column) => (
-          <div className="mt-10 min-w-[50%] lg:mt-0 lg:min-w-[18rem]">
+          <div
+            key={column.title}
+            className="mt-10 min-w-[50%] lg:mt-0 lg:min-w-[18rem]"
+          >
             <h3 className="mb-3 font-medium">{column.title}</h3>
             <ul>
               {column.links.map((link) => (
-                <li className="[&_a]:last:mb-0">
+                <li key={link.href} className="[&_a]:last:mb-0">
                   <Link className="mb-3 block text-grey" href={link.href}>
                     {link.title}
                   </Link>
