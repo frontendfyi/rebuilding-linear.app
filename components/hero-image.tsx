@@ -75,9 +75,9 @@ export const HeroImage = () => {
               className={classNames(
                 "absolute top-0 block h-[1px] w-[10rem] bg-glow-lines",
                 line.direction === "to right" &&
-                  `left-0 h-[1px] w-[calc(var(--size)*1rem)] animate-glow-line-horizontal`,
+                  `left-0 h-[1px] w-[calc(var(--size)*0.5rem)] md:w-[calc(var(--size)*1rem)] animate-glow-line-horizontal`,
                 line.direction === "to bottom" &&
-                  `right-0 h-[calc(var(--size)*1rem)] w-[1px] animate-glow-line-vertical`
+                  `right-0 h-[calc(var(--size)*0.5rem)] md:h-[calc(var(--size)*1rem)] w-[1px] animate-glow-line-vertical`
               )}
             />
           ))}
