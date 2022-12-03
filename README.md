@@ -13,6 +13,7 @@ This version is the end result of the first video. Any next part will also be co
 ## Video links 📺
 
 * [Part One](https://youtu.be/ls_b-1a0ZUc): Setting up the project, building the header, main navigation, part of the hero component and the footer.
+* [Part Two](https://youtu.be/R5PjNcIdAzU): Building the super detailed animated hero on the homepage.
 
 ## Running this project
 
