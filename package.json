@@ -12,7 +12,8 @@
     "js-cookie": "^3.0.1",
     "next": "13.0.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.2",

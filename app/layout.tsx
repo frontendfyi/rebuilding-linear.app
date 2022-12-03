@@ -17,7 +17,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <div>
           <Header />
-          <main className="pt-navigation-height">{children}</main>
+          <main className="bg-page-gradient pt-navigation-height">
+            {children}
+          </main>
           <Footer />
           <CopyrightLinearBanner />
         </div>
