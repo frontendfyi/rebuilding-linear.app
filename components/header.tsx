@@ -9,7 +9,7 @@ import { Logo } from "./icons/logo";
 import classNames from "classnames";
 
 export const Header = () => {
-  const [hamburgerMenuIsOpen, setHambugerMenuIsOpen] = useState(false);
+  const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
 
   useEffect(() => {
     const html = document.querySelector("html");
@@ -17,7 +17,7 @@ export const Header = () => {
   }, [hamburgerMenuIsOpen]);
 
   useEffect(() => {
-    const closeHamburgerNavigation = () => setHambugerMenuIsOpen(false);
+    const closeHamburgerNavigation = () => setHamburgerMenuIsOpen(false);
 
     window.addEventListener("orientationchange", closeHamburgerNavigation);
     window.addEventListener("resize", closeHamburgerNavigation);
@@ -26,7 +26,7 @@ export const Header = () => {
       window.removeEventListener("orientationchange", closeHamburgerNavigation);
       window.removeEventListener("resize", closeHamburgerNavigation);
     };
-  }, [setHambugerMenuIsOpen]);
+  }, [setHamburgerMenuIsOpen]);
 
   return (
     <header className="fixed top-0 left-0 z-10 w-full border-b border-transparent-white backdrop-blur-[12px]">
@@ -90,7 +90,7 @@ export const Header = () => {
 
         <button
           className="ml-6 md:hidden"
-          onClick={() => setHambugerMenuIsOpen((open) => !open)}
+          onClick={() => setHamburgerMenuIsOpen((open) => !open)}
         >
           <span className="sr-only">Toggle menu</span>
           <HamburgerIcon />
