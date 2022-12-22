@@ -10,7 +10,7 @@ const randomNumberBetween = (min: number, max: number) => {
 
 interface Line {
   id: string;
-  direction: "to bottom" | "to right";
+  direction: "to top" | "to left";
   size: number;
   duration: number;
 }
@@ -32,7 +32,7 @@ export const HeroImage = () => {
         setLines((lines) => [
           ...lines,
           {
-            direction: Math.random() > 0.5 ? "to bottom" : "to right",
+            direction: Math.random() > 0.5 ? "to top" : "to left",
             duration: randomNumberBetween(1300, 3500),
             size: randomNumberBetween(10, 30),
             id: Math.random().toString(36).substring(7),
@@ -74,9 +74,9 @@ export const HeroImage = () => {
               }
               className={classNames(
                 "absolute top-0 block h-[1px] w-[10rem] bg-glow-lines",
-                line.direction === "to right" &&
+                line.direction === "to left" &&
                   `left-0 h-[1px] w-[calc(var(--size)*0.5rem)] md:w-[calc(var(--size)*1rem)] animate-glow-line-horizontal`,
-                line.direction === "to bottom" &&
+                line.direction === "to top" &&
                   `right-0 h-[calc(var(--size)*0.5rem)] md:h-[calc(var(--size)*1rem)] w-[1px] animate-glow-line-vertical`
               )}
             />

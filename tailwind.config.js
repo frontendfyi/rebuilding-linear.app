@@ -97,13 +97,13 @@ module.exports = {
         "0%": { opacity: 0, transform: "translateX(0)" },
         "5%": { opacity: 1, transform: "translateX(0)" },
         "90%": { opacity: 1 },
-        "100%": { opacity: 0, transform: "translateX(min(70vw, 45rem))" },
+        "100%": { opacity: 0, transform: "translateX(min(60vw, 45rem))" },
       },
       "glow-line-vertical": {
         "0%": { opacity: 0, transform: "translateY(0)" },
         "5%": { opacity: 1, transform: "translateY(0)" },
         "90%": { opacity: 1 },
-        "100%": { opacity: 0, transform: "translateY(min(39vw, 45rem))" },
+        "100%": { opacity: 0, transform: "translateY(min(21vw, 45rem))" },
       },
     },
     animation: {
