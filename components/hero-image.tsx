@@ -75,9 +75,9 @@ export const HeroImage = () => {
               className={classNames(
                 "absolute top-0 block h-[1px] w-[10rem] bg-glow-lines",
                 line.direction === "to left" &&
-                  `left-0 h-[1px] w-[calc(var(--size)*0.5rem)] md:w-[calc(var(--size)*1rem)] animate-glow-line-horizontal`,
+                  `left-0 h-[1px] w-[calc(var(--size)*0.5rem)] animate-glow-line-horizontal md:w-[calc(var(--size)*1rem)]`,
                 line.direction === "to top" &&
-                  `right-0 h-[calc(var(--size)*0.5rem)] md:h-[calc(var(--size)*1rem)] w-[1px] animate-glow-line-vertical`
+                  `right-0 h-[calc(var(--size)*0.5rem)] w-[1px] animate-glow-line-vertical md:h-[calc(var(--size)*1rem)]`
               )}
             />
           ))}
@@ -85,7 +85,7 @@ export const HeroImage = () => {
         <svg
           className={classNames(
             "absolute left-0 top-0 h-full w-full",
-            "[&_path]:stroke-white [&_path]:[stroke-opacity:0.2] [&_path]:[stroke-dasharray:1] [&_path]:[stroke-dashoffset:1]",
+            "[&_path]:stroke-white [&_path]:[strokeOpacity:0.2] [&_path]:[stroke-dasharray:1] [&_path]:[stroke-dashoffset:1]",
             inView && "[&_path]:animate-sketch-lines"
           )}
           width="100%"

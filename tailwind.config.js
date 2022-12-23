@@ -43,6 +43,8 @@ module.exports = {
       10: "4rem",
       11: "4.4rem",
       12: "4.8rem",
+      13: "5.2rem",
+      14: "5.6rem",
       "navigation-height": "var(--navigation-height)",
     },
     backgroundImage: {
@@ -56,6 +58,10 @@ module.exports = {
         "conic-gradient(from 230.29deg at 51.63% 52.16%, rgb(36, 0, 255) 0deg, rgb(0, 135, 255) 67.5deg, rgb(108, 39, 157) 198.75deg, rgb(24, 38, 163) 251.25deg, rgb(54, 103, 196) 301.88deg, rgb(105, 30, 255) 360deg)",
       "glow-lines":
         "linear-gradient(var(--direction),#9d9bf2 0.43%,#7877c6 14.11%,rgba(120,119,198,0) 62.95%)",
+      "radial-faded":
+        "radial-gradient(circle at bottom center,var(--color),transparent 70%)",
+      "glass-gradient":
+        "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
     },
     boxShadow: {
       primary: "rgb(80 63 205 / 50%) 0px 1px 40px",
@@ -105,6 +111,14 @@ module.exports = {
         "90%": { opacity: 1 },
         "100%": { opacity: 0, transform: "translateY(min(21vw, 45rem))" },
       },
+      zap: {
+        "0%, 9%, 11%, 100% ": {
+          fill: "transparent",
+        },
+        "10%": {
+          fill: "white",
+        },
+      },
     },
     animation: {
       "fade-in": "fade-in 1000ms var(--animation-delay, 0ms) ease forwards",
@@ -115,6 +129,7 @@ module.exports = {
         "glow-line-horizontal var(--animation-duration) ease-in forwards",
       "glow-line-vertical":
         "glow-line-vertical var(--animation-duration) ease-in forwards",
+      zap: "zap 2250ms calc(var(--index) * 20ms) linear infinite",
     },
   },
   plugins: [],
