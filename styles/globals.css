@@ -11,6 +11,18 @@
     @apply bg-background font-sans text-off-white;
     font-size: 62.5%;
   }
+
+  .highlighted-keys .active rect:first-child {
+    fill-opacity: 0.4;
+  }
+
+  .highlighted-keys .active rect:not(:first-child) {
+    stroke-opacity: 1;
+  }
+
+  .highlighted-keys .active path {
+    fill-opacity: 1;
+  }
 }
 
 @layer utilities {
@@ -30,5 +42,13 @@
 
   .mask-linear-faded {
     mask-image: linear-gradient(black, transparent 70%)
+  }
+
+  .mask-keyboard {
+    mask-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.57) 33.98%, black 100%);
+  }
+
+  .mask-shortcutkeys {
+    mask-image: linear-gradient(to right, transparent, black 40%, black calc(60%), transparent 100%);
   }
 }

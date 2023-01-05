@@ -1,5 +1,11 @@
 export const LogoLightIllustration = () => (
-  <svg viewBox="0 0 557 557" width="557" height="557" fill="none">
+  <svg
+    viewBox="0 0 557 557"
+    width="557"
+    height="557"
+    fill="none"
+    className="max-h-full max-w-full"
+  >
     <g strokeWidth="18" filter="url(#filter0_f_1706_102555)" opacity="0.4">
       <path
         stroke="url(#paint0_linear_1706_102555)"
