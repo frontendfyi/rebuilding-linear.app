@@ -80,7 +80,7 @@ export const Header = () => {
         </div>
 
         <div className="ml-auto flex h-full items-center">
-          <Link className="mr-6 text-sm" href="/sign-in">
+          <Link className="mr-6 hidden text-sm md:flex" href="/sign-in">
             Log in
           </Link>
           <Button href="/sign-up">Sign up</Button>
