@@ -16,7 +16,7 @@ export const HomepageHero = () => (
     </Button>
     <HeroTitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
       Inventory Management
-      <br className="hidden md:block" /> on the edge
+      <br className="flex md:block" /> on the edge
     </HeroTitle>
     <HeroSubtitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
       Reduce inventory loss by 50%, save 10 hours a week calculating stock.

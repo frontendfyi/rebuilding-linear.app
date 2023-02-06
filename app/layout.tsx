@@ -1,6 +1,5 @@
 import { AnalyticsWrapper } from "../components/analytics";
 import { Container } from "../components/container";
-import { CopyrightLinearBanner } from "../components/copyright-linear-banner";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import "../styles/globals.css";
