@@ -24,6 +24,12 @@ export const HomepageHero = () => (
       take.
       <br className="hidden md:block" />
     </HeroSubtitle>
+    <div className=" m-10 inline-flex h-[8vh] w-[20vw] ">
+      <input
+        type="email"
+        className="hover:text-shadow focus:text-shadow h-full w-full rounded-t-sm border-b-2 border-b-zinc-700 bg-blue-800/10 from-blue-800/5 to-purple-900/5 p-4 text-2xl font-thin tracking-wide text-slate-400 shadow-transparent-white transition-[shadow,text-shadow] hover:shadow-primary"
+      />
+    </div>
     <Button
       className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]"
       href="/contact-us"

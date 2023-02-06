@@ -31,24 +31,42 @@
   }
 
   .text-gradient {
-    background: linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38));
+    background: linear-gradient(
+      to right bottom,
+      rgb(255, 255, 255) 30%,
+      rgba(255, 255, 255, 0.38)
+    );
     background-clip: text;
     color: transparent;
   }
 
   .mask-radial-faded {
-    mask-image: radial-gradient(circle at center center, black, transparent 80%)
+    mask-image: radial-gradient(
+      circle at center center,
+      black,
+      transparent 80%
+    );
   }
 
   .mask-linear-faded {
-    mask-image: linear-gradient(black, transparent 70%)
+    mask-image: linear-gradient(black, transparent 70%);
   }
 
   .mask-keyboard {
-    mask-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.57) 33.98%, black 100%);
+    mask-image: linear-gradient(
+      transparent 0%,
+      rgba(0, 0, 0, 0.57) 33.98%,
+      black 100%
+    );
   }
 
   .mask-shortcutkeys {
-    mask-image: linear-gradient(to right, transparent, black 40%, black calc(60%), transparent 100%);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 40%,
+      black calc(60%),
+      transparent 100%
+    );
   }
 }

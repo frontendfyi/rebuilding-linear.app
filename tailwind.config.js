@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{ts,tsx}"],
   theme: {
@@ -28,6 +29,31 @@ module.exports = {
       grey: "#858699",
       "grey-dark": "#222326",
       "primary-text": "#b4bcd0",
+      transparent: "transparent",
+      current: "currentColor",
+      slate: colors.slate,
+      black: colors.black,
+      zinc: colors.zinc,
+      neutral: colors.neutral,
+      teal: colors.teal,
+      gray: colors.gray,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
+      green: colors.green,
+      cyan: colors.cyan,
+      sky: colors.sky,
+      blue: colors.blue,
+      violet: colors.violet,
+      purple: colors.purple,
+      fuchsia: colors.fuchsia,
+      rose: colors.rose,
+      lime: colors.lime,
+      amber: colors.amber,
+      orange: colors.orange,
+      red: colors.red,
+      stone: colors.stone,
+      sky: colors.sky,
     },
     spacing: {
       0: "0",
