@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {children}
           </main>
           <Footer />
-          <CopyrightLinearBanner />
+          {/* <CopyrightLinearBanner /> */}
         </div>
         <AnalyticsWrapper />
       </body>

@@ -11,20 +11,22 @@ export const HomepageHero = () => (
       variant="secondary"
       size="small"
     >
-      Linear 2022 Release – Built for scale <Highlight>→</Highlight>
+      Project Waitless 2023 Release – Built for cost control{" "}
+      <Highlight className="m-2">→</Highlight>
     </Button>
     <HeroTitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-      Linear is a better way
-      <br className="hidden md:block" /> to build products
+      Inventory Management
+      <br className="hidden md:block" /> on the edge
     </HeroTitle>
     <HeroSubtitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-      Meet the new standard for modern software development.
-      <br className="hidden md:block" /> Streamline issues, sprints, and product
-      roadmaps.
+      Reduce inventory loss by 50%, save 10 hours a week calculating stock.
+      <br className="hidden md:block" /> Meet the new standard for modern stock
+      take.
+      <br className="hidden md:block" />
     </HeroSubtitle>
     <Button
       className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]"
-      href="/"
+      href="/contact-us"
       variant="primary"
       size="large"
     >

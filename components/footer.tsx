@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "./container";
-import { GithubIcon } from "./icons/github";
+import { DiscordIcon } from "./icons/discord";
 import { Logo } from "./icons/logo";
 import { SlackIcon } from "./icons/slack";
 import { TwitterIcon } from "./icons/twitter";
@@ -9,42 +9,38 @@ const footerLinks = [
   {
     title: "Product",
     links: [
-      { title: "Features", href: "#" },
-      { title: "Integrations", href: "#" },
-      { title: "Pricing", href: "#" },
-      { title: "Changelog", href: "#" },
-      { title: "Docs", href: "#" },
-      { title: "Linear Method", href: "#" },
-      { title: "Download", href: "#" },
+      { title: "Features", href: "#features" },
+      { title: "Integrations", href: "#integrations" },
+      { title: "Pricing", href: "#pricing" },
+      { title: "Docs", href: "/docs" },
     ],
   },
   {
     title: "Company",
     links: [
-      { title: "About us", href: "#" },
-      { title: "Blog", href: "#" },
-      { title: "Careers", href: "#" },
-      { title: "Customers", href: "#" },
-      { title: "Brand", href: "#" },
+      { title: "About us", href: "/about-us" },
+      { title: "Blog", href: "/blog" },
+      { title: "Careers", href: "/career" },
+      { title: "Customers", href: "/customers" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { title: "Community", href: "#" },
-      { title: "Contact", href: "#" },
-      { title: "DPA", href: "#" },
-      { title: "Terms of service", href: "#" },
+      { title: "Discord Community", href: "https://discord.gg/QGbFWDcTTM" },
+      { title: "Contact", href: "/contact-us" },
+      { title: "DPA", href: "/dpa" },
+      { title: "Terms of service", href: "/terms-of-service" },
     ],
   },
-  {
-    title: "Developers",
-    links: [
-      { title: "API", href: "#" },
-      { title: "Status", href: "#" },
-      { title: "GitHub", href: "#" },
-    ],
-  },
+  // {
+  //   title: "Developers",
+  //   links: [
+  //     { title: "API", href: "/api-request" },
+  //     { title: "Status", href: "/status" },
+  //     { title: "GitHub", href: "/github" },
+  //   ],
+  // },
 ];
 
 export const Footer = () => (
@@ -52,12 +48,33 @@ export const Footer = () => (
     <Container className="flex flex-col justify-between lg:flex-row">
       <div>
         <div className="flex h-full flex-row justify-between lg:flex-col">
-          <div className="flex items-center text-grey">
-            <Logo className="mr-4 h-4 w-4" /> Linear - Designed worldwide
+          <div className="flex items-center space-x-4 text-grey">
+            <span>
+              <Link
+                href="#hero"
+                className="flex items-center space-x-4 text-grey"
+              >
+                <Logo className="mr-4 h-4 w-4 " />{" "}
+                <strong className="hover:text-white">Project Waitless</strong>
+              </Link>
+              <span className="text-slate-200/70 mt-4">
+                Make Unforgettable Experiences Stand The Test Of Time &nbsp;
+              </span>
+            </span>
           </div>
-          <div className="mt-auto flex space-x-4 text-grey">
-            <TwitterIcon />
-            <GithubIcon />
+          <div className="mt-auto hidden space-x-4 text-grey md:flex">
+            <div className="w-64 h-64 bg-red-100 relative mr-4">
+              <div className="absolute inset-0 z-0 bg-cover bg-center">
+                <div className="text-slate-200/70 font-extrathin mb-24 absolute inset-0 z-10 flex items-center justify-center text-xs opacity-0 duration-300 hover:opacity-100">
+                  Coming Soon
+                </div>
+                <TwitterIcon />
+              </div>
+            </div>
+
+            <Link href="https://discord.gg/QGbFWDcTTM">
+              <DiscordIcon />
+            </Link>
             <SlackIcon />
           </div>
         </div>
@@ -83,6 +100,21 @@ export const Footer = () => (
             </ul>
           </div>
         ))}
+      </div>
+      <div className="mt-4 flex justify-center space-x-4 text-grey md:hidden ">
+        <div className="w-64 h-64 bg-red-100 relative mr-4">
+          <div className="absolute inset-0 z-0 bg-cover bg-center">
+            <div className="text-slate-200/70 font-extrathin mb-24 absolute inset-0 z-10 flex items-center justify-center text-xs opacity-0 duration-300 hover:opacity-100">
+              Coming Soon
+            </div>
+            <TwitterIcon />
+          </div>
+        </div>
+
+        <Link href="https://discord.gg/QGbFWDcTTM">
+          <DiscordIcon />
+        </Link>
+        <SlackIcon />
       </div>
     </Container>
   </footer>
