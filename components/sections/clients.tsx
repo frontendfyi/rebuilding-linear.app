@@ -1,15 +1,3 @@
-import { AlanLogo } from "../logos/alan";
-import { ArcLogo } from "../logos/arc";
-import { CashAppLogo } from "../logos/cashapp";
-import { DescriptLogo } from "../logos/descript";
-import { LoomLogo } from "../logos/loom";
-import { MercuryLogo } from "../logos/mercury";
-import { OpenSeaLogo } from "../logos/opensea";
-import { PitchLogo } from "../logos/pitch";
-import { RampLogo } from "../logos/ramp";
-import { RaycastLogo } from "../logos/raycast";
-import { RetoolLogo } from "../logos/retool";
-import { VercelLogo } from "../logos/vercel";
 import { SquareLogo } from "../logos/Square";
 import Image from "next/image";
 import MarketManPic from "../logos/marketman-invert.png";
