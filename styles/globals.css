@@ -73,4 +73,14 @@
       transparent 100%
     );
   }
+  .rotating-word_rotate-words-4__lQRQO {
+    animation: rotating-word_rotate_words_4__P9qw_
+      (
+        6s infinite; animation-duration: 6s; animation-timing-function: ease;
+          animation-delay: 0s; animation-iteration-count: infinite;
+          animation-direction: normal; animation-fill-mode: none;
+          animation-play-state: running; animation-name:
+          rotating-word_rotate_words_4__P9qw_
+      );
+  }
 }

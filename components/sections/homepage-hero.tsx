@@ -34,12 +34,12 @@ export const HomepageHero = () => (
     <div className=" m-10 justify-center md:inline-flex md:h-[8vh] md:w-[25vw]">
       <input
         type="email"
-        className="hover:text-shadow focus:text-shadow h-full w-full transform rounded-md bg-transparent  p-4 text-md font-thin tracking-wide text-slate-400 shadow-transparent-white ring-2 ring-sky-400/80 transition-[shadow,text-shadow] hover:shadow-primary  focus:ring-2 focus:ring-sky-300 sm:text-md md:text-xl"
+        className="hover:text-shadow focus:text-shadow h-full w-full transform rounded-md bg-transparent  p-4 text-md font-thin tracking-wide text-slate-400 antialiased shadow-transparent-white ring-2 ring-sky-400/80 transition-[shadow,text-shadow]  hover:shadow-primary focus:ring-2 focus:ring-sky-300 sm:text-md md:text-xl"
         autoComplete="on"
       />
     </div>
     <Button
-      className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]"
+      className="translate-y-[-1rem] animate-fade-in antialiased opacity-0 [--animation-delay:600ms]"
       href="/contact-us"
       variant="primary"
       size="large"

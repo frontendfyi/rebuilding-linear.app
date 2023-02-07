@@ -20,7 +20,7 @@ import Planday from "../logos/planday.png";
 
 export const Clients = () => (
   <>
-    <p className="mb-12 text-center text-lg text-white md:text-xl">
+    <p className="mb-12 text-center text-lg text-white antialiased md:text-xl">
       <span className="text-primary-text">
         Integrate with your existing tools and services.
       </span>

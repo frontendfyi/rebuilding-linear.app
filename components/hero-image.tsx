@@ -104,7 +104,7 @@ export const HeroImage = () => {
             "relative z-10 transition-opacity delay-[680ms]",
             inView ? "opacity-100" : "opacity-0"
           )}
-          src="/img/feature-1.png"
+          src="/img/feature-1-masked.png"
           alt="Hero image"
         />
       </div>
