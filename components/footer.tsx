@@ -29,7 +29,7 @@ const footerLinks = [
     links: [
       { title: "Discord Community", href: "https://discord.gg/QGbFWDcTTM" },
       { title: "Contact", href: "/contact-us" },
-      { title: "DPA", href: "/dpa" },
+      { title: "Privacy Policy", href: "/privacy-policy" },
       { title: "Terms of service", href: "/terms-of-service" },
     ],
   },
@@ -55,17 +55,19 @@ export const Footer = () => (
                 className="flex items-center space-x-4 text-grey"
               >
                 <Logo className="mr-4 h-4 w-4 " />{" "}
-                <strong className="hover:text-white">Project Waitless</strong>
+                <strong className="transform transition hover:text-white">
+                  Project Waitless
+                </strong>
               </Link>
-              <span className="text-slate-200/70 mt-4">
+              <span className="mt-4 text-slate-200/70">
                 Make Unforgettable Experiences Stand The Test Of Time &nbsp;
               </span>
             </span>
           </div>
           <div className="mt-auto hidden space-x-4 text-grey md:flex">
-            <div className="w-64 h-64 bg-red-100 relative mr-4">
+            <div className="w-64 h-64 relative mr-4 bg-red-100">
               <div className="absolute inset-0 z-0 bg-cover bg-center">
-                <div className="text-slate-200/70 font-extrathin mb-24 absolute inset-0 z-10 flex items-center justify-center text-xs opacity-0 duration-300 hover:opacity-100">
+                <div className="font-extrathin mb-24 absolute inset-0 z-10 flex items-center justify-center text-xs text-slate-200/70 opacity-0 duration-300 hover:opacity-100">
                   Coming Soon
                 </div>
                 <TwitterIcon />
@@ -90,7 +92,7 @@ export const Footer = () => (
               {column.links.map((link) => (
                 <li key={link.title} className="[&_a]:last:mb-0">
                   <Link
-                    className="mb-3 block text-grey transition-colors hover:text-off-white"
+                    className="mb-3 block transform text-grey transition-colors hover:text-off-white"
                     href={link.href}
                   >
                     {link.title}
@@ -102,16 +104,19 @@ export const Footer = () => (
         ))}
       </div>
       <div className="mt-4 flex justify-center space-x-4 text-grey md:hidden ">
-        <div className="w-64 h-64 bg-red-100 relative mr-4">
+        <div className="w-64 h-64 relative mr-4 bg-red-100">
           <div className="absolute inset-0 z-0 bg-cover bg-center">
-            <div className="text-slate-200/70 font-extrathin mb-24 absolute inset-0 z-10 flex items-center justify-center text-xs opacity-0 duration-300 hover:opacity-100">
+            <div className="font-extrathin mb-24 absolute inset-0 z-10 flex items-center justify-center text-xs text-slate-200/70 opacity-0 duration-300 hover:opacity-100">
               Coming Soon
             </div>
             <TwitterIcon />
           </div>
         </div>
 
-        <Link href="https://discord.gg/QGbFWDcTTM">
+        <Link
+          href="https://discord.gg/QGbFWDcTTM"
+          className="transform transition hover:brightness-125 "
+        >
           <DiscordIcon />
         </Link>
         <SlackIcon />

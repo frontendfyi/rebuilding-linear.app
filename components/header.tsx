@@ -60,7 +60,7 @@ export const Header = () => {
                 <Link href="#features">Features</Link>
               </li>
               <li>
-                <Link href="#why-us">Why Us</Link>
+                <Link href="/why-us">Why Us</Link>
               </li>
 
               <li className="md:hidden lg:block">
@@ -70,7 +70,7 @@ export const Header = () => {
                 <Link href="#integration">Integrations</Link>
               </li>
               <li>
-                <Link href="#pricing">Pricing</Link>
+                <Link href="#plans">Plans</Link>
               </li>
               <li>
                 <Link href="/about">About</Link>

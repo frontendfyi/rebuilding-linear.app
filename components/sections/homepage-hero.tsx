@@ -34,7 +34,7 @@ export const HomepageHero = () => (
     <div className=" m-10 justify-center md:inline-flex md:h-[8vh] md:w-[25vw]">
       <input
         type="email"
-        className="hover:text-shadow focus:text-shadow h-full w-full rounded-t-sm border-b-2 border-b-zinc-700 bg-blue-800/10 from-blue-800/5 to-purple-900/5 p-4 text-md font-thin tracking-wide text-slate-400 shadow-transparent-white transition-[shadow,text-shadow] hover:shadow-primary sm:text-md md:text-xl"
+        className="hover:text-shadow focus:text-shadow h-full w-full transform rounded-md bg-transparent  p-4 text-md font-thin tracking-wide text-slate-400 shadow-transparent-white ring-2 ring-sky-400/80 transition-[shadow,text-shadow] hover:shadow-primary  focus:ring-2 focus:ring-sky-300 sm:text-md md:text-xl"
         autoComplete="on"
       />
     </div>
