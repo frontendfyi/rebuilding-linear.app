@@ -35,6 +35,7 @@ export const HomepageHero = () => (
       <input
         type="email"
         className="hover:text-shadow focus:text-shadow h-full w-full rounded-t-sm border-b-2 border-b-zinc-700 bg-blue-800/10 from-blue-800/5 to-purple-900/5 p-4 text-md font-thin tracking-wide text-slate-400 shadow-transparent-white transition-[shadow,text-shadow] hover:shadow-primary sm:text-md md:text-xl"
+        autoComplete="on"
       />
     </div>
     <Button
