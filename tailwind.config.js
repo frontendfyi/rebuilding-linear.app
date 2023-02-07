@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{ts,tsx}"],
   theme: {
     fontFamily: {
-      sans: '"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif',
+      sans: '"Inter var",...defaultTheme.fontFamily.sans',
     },
     fontSize: {
       xs: "1.3rem",
