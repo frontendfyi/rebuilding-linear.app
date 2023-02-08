@@ -5,7 +5,7 @@ import { ZapIllustration } from "../illustrations/zap";
 import { KeyboardShortcuts } from "../keyboard-shortcuts";
 
 export const UnlikeAnyTool = () => (
-  <div className=" text-white">
+  <div className=" text-white" id="features">
     <Container>
       <div className=" text-center">
         <h2 className="mb-4 text-4xl md:mb-7 md:text-7xl">

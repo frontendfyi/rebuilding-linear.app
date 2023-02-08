@@ -7,7 +7,7 @@ import { DojoLogo } from "../logos/dojo";
 import Planday from "../logos/planday.png";
 
 export const Integration = () => (
-  <>
+  <div id="integrations">
     <p className="mb-12 text-center text-lg text-white antialiased md:text-xl">
       <span className="text-primary-text">
         Integrate with your existing tools and services.
@@ -43,5 +43,5 @@ export const Integration = () => (
 
       {/* <PitchLogo className="hidden md:block" /> */}
     </div>
-  </>
+  </div>
 );
