@@ -32,7 +32,7 @@ export const HomepageHero = () => (
         <br className="hidden md:block" />
       </span>
     </HeroSubtitle>
-    <div className=" m-10 translate-y-[-1rem] animate-fade-in   justify-center border-0 [--animation-delay:600ms] md:inline-flex md:h-[8vh] md:w-[25vw]">
+    <div className=" m-10 inline-flex translate-y-[-1rem] animate-fade-in flex-col justify-center border-0 [--animation-delay:600ms] md:h-[8vh] md:w-[25vw]">
       <input
         type="email"
         className="hover:text-shadow focus:text-shadow h-full w-full  translate-y-[-1rem]  animate-fade-in justify-center rounded-md border-0 bg-transparent p-4 text-md  font-thin tracking-wide text-slate-400 antialiased opacity-0 shadow-transparent-white ring-2 ring-slate-200/80 transition-[shadow,text-shadow] [--animation-delay:600ms]  hover:shadow-primary focus:ring-2 focus:ring-sky-300 sm:text-md md:text-xl"
