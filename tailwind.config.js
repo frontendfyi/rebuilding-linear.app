@@ -2,7 +2,13 @@
 const colors = require("tailwindcss/colors");
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
-  content: ["./components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{ts,tsx}"],
+  content: [
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./src/app/**/*.{ts,tsx}",
+  ],
   theme: {
     fontFamily: {
       sans: '"Inter var",...defaultTheme.fontFamily.sans',

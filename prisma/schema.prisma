@@ -1,0 +1,202 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model EON_Report_Demo {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model End_Of_Night_Report {
+  id         BigInt    @id @unique @default(autoincrement())
+  user_id    BigInt?
+  created_at DateTime? @default(dbgenerated("(now() AT TIME ZONE 'utc'::text)")) @db.Timestamptz(6)
+  org_id     BigInt?
+  org_name   String?
+  user_role  BigInt?
+}
+
+model agency_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model artist_instagram_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model artists_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model image_prompt_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model landing_visitor_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  visitor    String?
+  session_id String?
+}
+
+model nightclub_db {
+  id                  BigInt             @id @default(autoincrement())
+  created_at          DateTime?          @default(now()) @db.Timestamptz(6)
+  name                String?            @db.VarChar
+  location            String?            @db.VarChar
+  ra_url              String?            @db.VarChar
+  url                 String?            @db.VarChar
+  google_map_location String?            @db.VarChar
+  email               String?            @db.VarChar
+  phone_number        BigInt?
+  nightclub_id        String             @unique @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  director            String?            @db.VarChar
+  nightclub_event_db  nightclub_event_db @relation(fields: [nightclub_id], references: [nightclub_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model nightclub_db_minimal_v2 {
+  id             BigInt    @id @default(autoincrement())
+  created_at     DateTime? @default(now()) @db.Timestamptz(6)
+  nightclub_id   String?   @db.Uuid
+  nightclub_name String?   @db.VarChar
+  address        String?   @db.VarChar
+  owner          String?   @db.VarChar
+  owner_url      String?   @db.VarChar
+}
+
+model nightclub_event_db {
+  event_id            BigInt        @id @default(autoincrement())
+  index               BigInt?
+  created_at          DateTime?     @default(now()) @db.Timestamptz(6)
+  event_name          String?       @db.VarChar
+  event_date          DateTime?     @db.Date
+  event_duration      String?       @db.VarChar
+  attendees           BigInt?
+  ticket_type         String?       @db.VarChar
+  ticket_price        BigInt?
+  genres              Json[]        @db.Json
+  promoter            String?       @db.VarChar
+  agency              String?       @db.VarChar
+  artists             Json[]        @db.Json
+  poster              String?       @db.VarChar
+  residentadvisor_url String?       @db.VarChar
+  nightclub_id        String        @unique @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  nightclub_db        nightclub_db?
+}
+
+model nightclub_instagram_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model nightclub_youtube_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model promoter_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model residentadvisor_root_db {
+  id              BigInt    @id(map: "nightclub_db_minimal_pkey") @default(autoincrement())
+  created_at      DateTime? @default(now()) @db.Timestamptz(6)
+  venue_name      String?   @db.VarChar
+  venue_id        String    @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  location        String?   @db.VarChar
+  owner_url       String?   @db.VarChar
+  city_name       String?   @db.VarChar
+  phone_number    String?   @db.VarChar
+  club_website    String?   @db.VarChar
+  google_map      String?   @db.VarChar
+  ra_followers    String?   @db.VarChar
+  capacity        String?   @db.VarChar
+  owner           String?   @db.VarChar
+  venue_latitude  String?
+  venue_longitude String?
+}
+
+model review_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model skiddle_base_db {
+  id         BigInt    @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  venue_name String?
+  venue_id   String?   @unique(map: "skiddle_db_venue_id_key") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  venue_url  String    @unique(map: "skiddle_db_venue_url_key")
+  city_name  String?
+
+  @@id([id, venue_url], map: "skiddle_db_pkey")
+}
+
+model skiddle_city_db {
+  id             BigInt    @default(autoincrement())
+  created_at     DateTime? @default(now()) @db.Timestamptz(6)
+  city_name      String
+  city_owner_url String?
+
+  @@id([id, city_name])
+}
+
+model skiddle_venue_db {
+  id                          BigInt    @default(autoincrement())
+  created_at                  DateTime? @default(now()) @db.Timestamptz(6)
+  venue_name                  String?
+  venue_id                    String?   @db.Uuid
+  venue_opening_status        Boolean?
+  venue_phone                 String?
+  venue_owner_url             String?
+  venue_music_type            String?
+  venue_dress_code            String?
+  venue_nearest_train_station String?
+  venue_address               String    @unique
+  venue_original_website      String?
+  venue_capacity              String?
+  venue_type                  String?
+  venue_food_served           String?
+  venue_drinks_served         String?
+  venue_parking               String?
+  venue_latitude              Float?
+  venue_longitude             Float?
+  venue_activity              Boolean?
+  venue_postcode              String?   @default("'venue_address[:7]'::text")
+  owner                       String?
+
+  @@id([id, venue_address])
+}
+
+model spotify_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model supplier_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model test_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  venue_name String?
+  owner_url  String?
+  owner      String?
+}
+
+model text_prompt_db {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+}

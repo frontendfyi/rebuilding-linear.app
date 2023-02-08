@@ -30,7 +30,7 @@ const footerLinks = [
       { title: "Discord Community", href: "https://discord.gg/QGbFWDcTTM" },
       { title: "Contact", href: "/contact-us" },
       { title: "Privacy Policy", href: "/privacy-policy" },
-      { title: "Terms of service", href: "/terms-of-service" },
+      { title: "Terms and Conditions", href: "/terms-conditions" },
     ],
   },
   // {
