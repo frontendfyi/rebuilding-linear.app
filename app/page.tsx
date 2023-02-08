@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { Container } from "../components/container";
 import { StarsIllustration } from "../components/icons/stars";
-import { Clients } from "../components/sections/clients";
+import { Integration } from "../components/sections/Integration";
 import { HomepageHero } from "../components/sections/homepage-hero";
 import { UnlikeAnyTool } from "../components/sections/unlike-any-tool";
 
@@ -14,7 +14,7 @@ export default function Homepage() {
         </Container>
       </div>
       <Container>
-        <Clients />
+        <Integration />
       </Container>
       <div
         className={classNames(

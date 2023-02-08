@@ -4,18 +4,18 @@ import { Button, Highlight } from "./button";
 import { KeyboardIllustration } from "./illustrations/keyboard";
 
 const shortcuts = [
-  { text: "Opens command line", keys: "⌘k" },
-  { text: "Assign issue to me", keys: "i" },
-  { text: "Assign issue to", keys: "a" },
-  { text: "Change issue status", keys: "s" },
-  { text: "Set issue priority", keys: "p" },
-  { text: "Add issue labels", keys: "l" },
-  { text: "Set due date", keys: "⇧d" },
-  { text: "Set parent issue", keys: "⇧⌘p" },
-  { text: "Add sub-issue", keys: "⇧⌘o" },
-  { text: "Create new issue", keys: "c" },
-  { text: "Create new issue from template", keys: "⌥c" },
-  { text: "Move to project", keys: "⇧p" },
+  { text: "Check stock level", keys: "⌘k" },
+  { text: "Show unvalidated cell", keys: "i" },
+  { text: "Order new items", keys: "a" },
+  { text: "Change cell status", keys: "s" },
+  { text: "Set item priority", keys: "p" },
+  { text: "Generate allergence labels", keys: "l" },
+  { text: "Turn off operations", keys: "⇧d" },
+  { text: "Set alert", keys: "⇧⌘p" },
+  { text: "Add sub-alert", keys: "⇧⌘o" },
+  { text: "Update menu items", keys: "c" },
+  { text: "Create new items", keys: "⌥c" },
+  { text: "Select other venue locations", keys: "⇧p" },
 ];
 
 export const KeyboardShortcuts = () => {

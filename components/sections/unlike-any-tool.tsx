@@ -12,10 +12,10 @@ export const UnlikeAnyTool = () => (
           Unlike any tool
           <br className="hidden md:inline-block" /> you&apos;ve used before
         </h2>
-        <p className="mx-auto mb-12 max-w-[68rem] text-lg font-normal text-primary-text antialiased md:mb-7 md:text-xl">
+        <p className="mx-auto mb-12 max-w-[78rem] text-lg font-normal text-primary-text antialiased md:mb-7 md:text-xl">
           Designed for hospitality venues with unforgiving precision, we
-          combines everything possibly can
-          <br className="block" /> to allow inventory control, with granularity.
+          combines everything possibly can to allow inventory control, with
+          granularity.
         </p>
         {/* <div className="text-shadow mb-12 flex flex-col items-center justify-evenly gap-4 p-4 text-center text-2xl font-normal text-slate-200 antialiased md:mb-7 md:flex-row md:gap-6">
           <div className="ml-3">Hardware</div>
@@ -32,7 +32,7 @@ export const UnlikeAnyTool = () => (
           <p className="mb-4 text-3xl">Built for hospitality</p>
           <p className="text-md text-primary-text">
             Fly through your stock take. Monitor everything on both desktop and
-            mobile.
+            mobile, like playing a game.
           </p>
         </div>
         <div className="relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end overflow-hidden rounded-[4.8rem] border border-transparent-white bg-glass-gradient p-8 text-center antialiased md:basis-[calc(33.33%-12px)] md:p-14">
@@ -60,7 +60,7 @@ export const UnlikeAnyTool = () => (
             className="absolute bottom-[20rem] translate-y-[30%] scale-[0.8] opacity-0 transition-[transform,opacity] group-hover:transform-none group-hover:opacity-100 [&_.highlight]:text-[1.1rem]"
             variant="secondary"
             size="small"
-            href="/"
+            href="/product-principles"
           >
             <Highlight>Speed and precision</Highlight>
             Product principles

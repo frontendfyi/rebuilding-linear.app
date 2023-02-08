@@ -6,7 +6,7 @@ import { XeroLogo } from "../logos/xero";
 import { DojoLogo } from "../logos/dojo";
 import Planday from "../logos/planday.png";
 
-export const Clients = () => (
+export const Integration = () => (
   <>
     <p className="mb-12 text-center text-lg text-white antialiased md:text-xl">
       <span className="text-primary-text">
