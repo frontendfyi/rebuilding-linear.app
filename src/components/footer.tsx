@@ -11,7 +11,7 @@ const footerLinks = [
     links: [
       { title: "Features", href: "#features" },
       { title: "Integrations", href: "#integrations" },
-      { title: "Pricing", href: "#pricing" },
+      // { title: "Pricing", href: "#pricing" },
       { title: "Docs", href: "/docs" },
     ],
   },
