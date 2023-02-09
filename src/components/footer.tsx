@@ -81,7 +81,7 @@ export const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap ">
         {footerLinks.map((column) => (
           <div
             key={column.title}
@@ -107,9 +107,12 @@ export const Footer = () => (
           <span className="mr-4 text-slate-200/70">
             Direct Support Line: 020 4538 5045
           </span>
-          <span className="mr-4 text-slate-200/70">
+          <Link
+            href="general@projectwaitless.io"
+            className="mr-4 text-slate-200/70"
+          >
             Email: general@projectwaitless.io
-          </span>
+          </Link>
         </div>
       </div>
 
