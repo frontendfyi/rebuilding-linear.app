@@ -68,9 +68,9 @@ export default function LoginForm() {
     const { data: user, error } = await supabase
       .from("pw_user_db")
       .select("user_email")
-      .eq("user_email", data.email);
+      .textSearch("user_email", data.email);
     if (user) {
-      router.push("/app");
+      router.push("/sign-up");
     } else if (!user) {
       const { data: unregisteredUser, error } = await supabase
         .from("user_db")
@@ -107,32 +107,9 @@ export default function LoginForm() {
               />
               <p className="font-medium text-red-500">
                 {methods.formState.errors?.email?.message}
-                {showCalendly ? (
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button
-                        type="submit"
-                        className="hover:[content='We will take you to schedule a meeting with us'] mt-4 items-center rounded bg-blue-500 py-3 px-4 text-center font-semibold text-white hover:bg-blue-700"
-                        variant="primary"
-                        size="large"
-                        id="submit"
-                      >
-                        Log In
-                        <Highlight>
-                          <ChevronIcon />
-                        </Highlight>
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px]">
-                      <CalendlyWidget
-                        prefill={{
-                          email: result.email,
-                          date: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-                        }}
-                      />
-                    </DialogContent>
-                  </Dialog>
-                ) : (
+              </p>
+              <Dialog>
+                <DialogTrigger asChild>
                   <Button
                     type="submit"
                     className="hover:[content='We will take you to schedule a meeting with us'] mt-4 items-center rounded bg-blue-500 py-3 px-4 text-center font-semibold text-white hover:bg-blue-700"
@@ -145,8 +122,16 @@ export default function LoginForm() {
                       <ChevronIcon />
                     </Highlight>
                   </Button>
-                )}
-              </p>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <CalendlyWidget
+                    prefill={{
+                      email: result.email,
+                      date: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+                    }}
+                  />
+                </DialogContent>
+              </Dialog>
             </div>
           </form>
         </div>
