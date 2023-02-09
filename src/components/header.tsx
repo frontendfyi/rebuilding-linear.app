@@ -51,13 +51,18 @@ export const Header = () => {
           >
             <ul
               className={classNames(
-                "flex h-full flex-col md:flex-row md:items-center [&_li]:ml-6 [&_li]:border-b [&_li]:border-grey-dark md:[&_li]:border-none",
+                "flex h-full flex-col md:flex-row md:items-center [&_li]:ml-6 [&_li]:border-none [&_li]:border-grey-dark md:[&_li]:border-none",
                 "ease-in [&_a:hover]:text-grey [&_a]:flex [&_a]:h-navigation-height [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors",
                 hamburgerMenuIsOpen && "[&_a]:translate-y-0"
               )}
             >
               <li>
-                <Link href="#features">Features</Link>
+                <Link
+                  href="#features"
+                  onClick={() => setHamburgerMenuIsOpen((open) => !open)}
+                >
+                  Features
+                </Link>
               </li>
               {/* <li>
                 <Link href="/why-us">Why Us</Link>
@@ -67,13 +72,21 @@ export const Header = () => {
                 <Link href="/blog">Blog</Link>
               </li> */}
               <li>
-                <Link href="#integration">Integrations</Link>
+                <Link
+                  href="#integration"
+                  onClick={() => setHamburgerMenuIsOpen((open) => !open)}
+                >
+                  Integrations
+                </Link>
               </li>
               {/* <li>
                 <Link href="#plans">Plans</Link>
               </li> */}
               <li>
-                <Link href="/about" onClick={setHamburgerMenuIsOpen(true)!}>
+                <Link
+                  href="/about"
+                  onClick={() => setHamburgerMenuIsOpen((open) => !open)}
+                >
                   About
                 </Link>
               </li>
