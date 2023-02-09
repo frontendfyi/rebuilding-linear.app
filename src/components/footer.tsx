@@ -21,14 +21,14 @@ const footerLinks = [
       { title: "About us", href: "/about-us" },
       { title: "Blog", href: "/blog" },
       { title: "Careers", href: "/career" },
-      { title: "Customers", href: "/customers" },
+      //  { title: "Customers", href: "/customers" },
     ],
   },
   {
     title: "Resources",
     links: [
       { title: "Discord Community", href: "https://discord.gg/QGbFWDcTTM" },
-      { title: "Contact", href: "/contact-us" },
+      { title: "Contact", href: "/contact" },
       { title: "Privacy Policy", href: "/privacy-policy" },
       { title: "Terms and Conditions", href: "/terms-conditions" },
     ],
@@ -102,7 +102,17 @@ export const Footer = () => (
             </ul>
           </div>
         ))}
+        <div className="my-4 flex space-x-6">
+          {" "}
+          <span className="mr-4 text-slate-200/70">
+            Direct Support Line: 020 4538 5045
+          </span>
+          <span className="mr-4 text-slate-200/70">
+            Email: general@projectwaitless.io
+          </span>
+        </div>
       </div>
+
       <div className="mt-4 flex justify-center space-x-4 text-grey md:hidden ">
         <div className="w-64 h-64 relative mr-4 bg-red-100">
           <div className="absolute inset-0 z-0 bg-cover bg-center">

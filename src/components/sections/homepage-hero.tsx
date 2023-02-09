@@ -86,8 +86,8 @@ export const HomepageHero = () => {
       <HeroSubtitle className="translate-y-[-1rem] animate-fade-in  opacity-0 [--animation-delay:400ms]">
         <span>
           Reduce inventory loss by 50%,
-          <br className="block md:hidden" /> save 10 hours a week calculating
-          stock.
+          <br className="block md:hidden" /> save 10 hours average a week
+          calculating stock.
         </span>
         <span>
           <br className="" /> Meet the new standard

@@ -1,6 +1,5 @@
 "use client";
 import { Label } from "../components/ui/label";
-import { Container } from "./container";
 import { useState } from "react";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
@@ -8,83 +7,208 @@ import { Button } from "./button";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 import {
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardContent,
-} from "../components/ui/hover-card";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog";
 import { useForm, UseFormProps, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarDays } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
+import { ChevronIcon } from "../components/icons/chevron";
+import { z } from "zod";
+import { Highlight } from "./button";
+import CompanyEmailValidator from "company-email-validator";
+import CalendlyWidget from "./CalendlyWidget";
 
-export default function ContactForm() {
-  const [form, setForm] = useState({
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_KEY!,
+  {
+    global: { fetch: fetch.bind(globalThis) },
+  }
+);
+
+function useZodForm<TSchema extends z.ZodType>(
+  props: Omit<UseFormProps<TSchema["_input"]>, "resolver"> & {
+    schema: TSchema;
+  }
+) {
+  const form = useForm<TSchema["_input"]>({
+    ...props,
+    resolver: zodResolver(props.schema, undefined),
+  });
+
+  return form;
+}
+
+const SOURCE = {
+  GOOGLE: "Google Search",
+  Other_Search: "Other Search Engine",
+  Linkedin: "Linkedin",
+  Medium: "Medium",
+  Twitter: "Twitter",
+  Conference: "Conference",
+  Other: "Other",
+} as const;
+
+const schema = z.object({
+  name: z.string().min(3).max(20),
+  email: z.string().email(),
+  text: z.string().min(10).max(1000),
+  source: z.nativeEnum(SOURCE),
+});
+
+export default function ContactForm(props: any) {
+  const router = useRouter();
+  const methods = useZodForm({
+    schema,
+    defaultValues: {
+      name: "",
+      email: "",
+      text: "",
+      source: "Google Search",
+    },
+  });
+  const [result, setResult] = useState({
     name: "",
     email: "",
-    message: "",
+    text: "",
+    source: "Google Search",
   });
-  // function onSubmit(e) {
-  //   e.preventDefault();
-  //   setForm(e.target.value);
-  //   console.log("submitted");
-  // }
+  const [isCompanyEmail, setIsCompanyEmail] = useState(false);
+  const [message, setMessage] = useState("");
+  const onSubmit = methods.handleSubmit(async (data) => {
+    setResult(data); // send to backend or smth
+    if (!CompanyEmailValidator.isCompanyEmail(data.email)) {
+      setIsCompanyEmail(false);
+      setMessage("Um...enter a company email please?");
+      return;
+    } else if (CompanyEmailValidator.isCompanyEmail(data.email)) {
+      const { data: user_db, error } = await supabase.from("user_db").upsert([
+        {
+          user_email: data.email,
+          user_name: data.name,
+          marketing_source: data.source,
+          contact_message: data.text,
+        },
+      ]);
+      setIsCompanyEmail(true);
+      console.log(error);
+      router.push("/success");
+    }
+  });
+
   return (
     <>
-      <div className="flex min-h-screen flex-col items-center justify-center gap-3 py-2">
+      <div className="flex min-h-screen translate-y-[-1rem] animate-fade-in flex-col items-center justify-center gap-3 py-2 opacity-0">
         <h1 className="text-center text-4xl font-bold">Contact Us</h1>
         <p className="text-center text-lg">
-          We&apos; love to hear from you! Please fill out the form below and
-          we&apos;ll get back to you as soon as possible.
+          We&apos;d love to hear from you. Fill out the form below and
+          we&apos;ll get back to you shortly.
         </p>
-        <form
-          className="mt-8 flex w-full max-w-lg flex-col items-center justify-center"
-          action=""
-        >
-          <div className="mb-4 flex w-full flex-col gap-3">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              className="border py-2 px-3 text-gray-700"
-              type="text"
-              placeholder="Name"
-              id="name"
-            />
-            <Label htmlFor="email">Email</Label>
-            <Input
-              className="border py-2 px-3 text-gray-700"
-              type="email"
-              placeholder="Company Email"
-              id="email"
-            />
-            <Label htmlFor="message">What would you like us to know?</Label>
-            <Textarea className="border py-2 px-3 text-gray-700" id="message" />
-            <HoverCard>
-              <HoverCardTrigger asChild>
-                <Button
-                  type="submit"
-                  className="hover:[content='We will take you to schedule a meeting with us'] mt-4 rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
-                >
-                  Submit
-                </Button>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-80">
-                <div className="flex justify-between space-x-4">
-                  <div className="space-y-1">
-                    <h4 className="text-sm font-semibold">@nextjs</h4>
-                    <p className="text-sm">
-                      Click on this button will take you to schedule a meeting
-                      with us.
-                    </p>
-                    <div className="flex items-center pt-2">
-                      <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
-                      <span className="text-xs text-slate-500 dark:text-slate-400">
-                        {new Date().toLocaleDateString()}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </HoverCardContent>
-            </HoverCard>
-          </div>
-        </form>
+        <div className="flex flex-col items-center justify-center gap-3">
+          <form
+            className="mt-8 flex w-full max-w-lg flex-col items-center justify-center"
+            action=""
+            onSubmit={onSubmit}
+          >
+            <div className="mb-4 flex w-full flex-col gap-3">
+              <Label htmlFor="name">Name</Label>
+              <Input
+                className="border py-2 px-3 text-gray-700"
+                {...methods.register("name")}
+                type="text"
+                placeholder="Name"
+                id="name"
+                autoComplete="on"
+              />
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.name?.message}
+              </p>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                className="border py-2 px-3 text-gray-700"
+                type="email"
+                placeholder="Company Email"
+                id="email"
+                autoComplete="on"
+                {...methods.register("email")}
+              />
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.email?.message}
+                {!isCompanyEmail && message}
+              </p>
+              <Label htmlFor="message">What would you like us to know?</Label>
+              <Textarea
+                className="border py-2 px-3 text-gray-700"
+                id="message"
+                {...methods.register("text")}
+              />
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.text?.message}
+              </p>
+              <Label htmlFor="source">How did you hear about us?</Label>
+              <Controller
+                control={methods.control}
+                name="source"
+                render={({ field }) => (
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger className="bg-transparent">
+                      <SelectValue placeholder="Select a source" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.entries(SOURCE).map(([key, value]) => (
+                        <SelectItem key={key} value={value} id={value}>
+                          {value}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.source?.message}
+              </p>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    type="submit"
+                    className="hover:[content='We will take you to schedule a meeting with us'] mt-4 items-center rounded bg-blue-500 py-3 px-4 text-center font-semibold text-white hover:bg-blue-700"
+                    variant="primary"
+                    size="large"
+                    id="submit"
+                  >
+                    Submit
+                    <Highlight>
+                      <ChevronIcon />
+                    </Highlight>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <CalendlyWidget
+                    prefill={{
+                      name: result.name,
+                      email: result.email,
+                      date: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+                    }}
+                  />
+                </DialogContent>
+              </Dialog>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

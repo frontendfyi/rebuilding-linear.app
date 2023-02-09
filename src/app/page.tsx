@@ -14,7 +14,10 @@ export default function Homepage() {
         </Container>
       </div>
       <Container>
-        <Integration />
+        <div id="integration">
+          {" "}
+          <Integration />
+        </div>
       </Container>
       <div
         className={classNames(

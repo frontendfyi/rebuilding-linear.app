@@ -163,6 +163,7 @@ module.exports = {
       "glow-line-vertical":
         "glow-line-vertical var(--animation-duration) ease-in forwards",
       zap: "zap 2250ms calc(var(--index) * 20ms) linear infinite",
+      spin: "spin 1s linear infinite",
     },
   },
   plugins: [],
