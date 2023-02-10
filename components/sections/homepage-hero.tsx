@@ -11,7 +11,8 @@ export const HomepageHero = () => (
       variant="secondary"
       size="small"
     >
-      Linear 2022 Release – Built for scale <Highlight>→</Highlight>
+      <span>Linear 2022 Release – Built for scale</span>{" "}
+      <Highlight>→</Highlight>
     </Button>
     <HeroTitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
       Linear is a better way
@@ -28,7 +29,7 @@ export const HomepageHero = () => (
       variant="primary"
       size="large"
     >
-      Get Started{" "}
+      <span>Get Started </span>
       <Highlight>
         <ChevronIcon />
       </Highlight>
