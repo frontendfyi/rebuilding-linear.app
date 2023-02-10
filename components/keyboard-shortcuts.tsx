@@ -97,7 +97,7 @@ export const KeyboardShortcuts = () => {
               variant="secondary"
             >
               <Highlight className="uppercase">{shortcut.keys}</Highlight>
-              {shortcut.text}
+              <span>{shortcut.text}</span>
             </Button>
           ))}
         </div>
