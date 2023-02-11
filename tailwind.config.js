@@ -119,6 +119,11 @@ module.exports = {
           fill: "white",
         },
       },
+      bounce: {
+        "50%": {
+          transform: "scale(0.98)",
+        },
+      },
     },
     animation: {
       "fade-in": "fade-in 1000ms var(--animation-delay, 0ms) ease forwards",
@@ -130,6 +135,7 @@ module.exports = {
       "glow-line-vertical":
         "glow-line-vertical var(--animation-duration) ease-in forwards",
       zap: "zap 2250ms calc(var(--index) * 20ms) linear infinite",
+      bounce: "240ms ease 0s 1 running bounce",
     },
   },
   plugins: [],
