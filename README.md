@@ -16,6 +16,7 @@ This version is the end result of the first video. Any next part will also be co
 * [Part Two](https://youtu.be/R5PjNcIdAzU): Building the super detailed animated hero on the homepage.
 * [Part Three](https://youtu.be/ar_NCPlRt_U): Building the client logo's and USP section.
 * [Part Four](https://youtu.be/RoQ0MXiWQoY): Building the interactive shortcuts keyboard.
+* [Part Five](https://youtu.be/lRtiKHy5Db8): Building the command menu.
 
 ## Running this project
 
