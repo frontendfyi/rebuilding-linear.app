@@ -6,15 +6,7 @@ import { Textarea } from "../components/ui/textarea";
 import { Button } from "./button";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "../components/ui/dialog";
 import { useForm, UseFormProps, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarDays } from "lucide-react";
@@ -105,7 +97,6 @@ export default function ContactForm(props: any) {
       ]);
       setIsCompanyEmail(true);
       console.log(error);
-      router.push("/success");
     }
   });
 

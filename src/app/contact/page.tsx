@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "../../components/container";
 import ContactForm from "../../components/ContactForm";
-import { InlineWidget } from "react-calendly";
+
 export default function Contact() {
   return (
     <Container>
