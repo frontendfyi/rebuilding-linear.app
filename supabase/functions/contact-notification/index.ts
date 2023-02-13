@@ -12,10 +12,10 @@ serve(async (req: NextApiRequest) => {
     password: Deno.env.get("SMTP_PASSWORD")!,
   });
 
-  const body = await req.json();
+  const body = await req.body();
 
   const functionSecret = Deno.env.get("FUNCTION_SECRET");
-  const requestSecret = req.headers.get("x-function-secret");
+  const requestSecret = req.headers.get("x-function-secret")!;
 
   if (functionSecret !== requestSecret) {
     return new Response("Unauthorized", { status: 401 });
