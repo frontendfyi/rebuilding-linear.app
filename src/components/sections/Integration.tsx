@@ -16,7 +16,7 @@ export const Integration = () => (
       <br className="hidden md:block" /> Upgrade without breaking changes.
     </p>
 
-    <div className="flex flex-wrap items-center justify-around gap-x-6 gap-y-6 md:gap-y-8 [&_svg]:max-w-[16rem] [&_svg]:basis-[calc(50%-12px)] md:[&_svg]:basis-[calc(16.66%-20px)]">
+    <div className="flex flex-wrap items-center justify-around gap-x-2 gap-y-2 md:gap-x-6 md:gap-y-8 [&_svg]:max-w-[16rem] [&_svg]:basis-[calc(50%-12px)] md:[&_svg]:basis-[calc(16.66%-20px)]">
       <SquareLogo className="brightness-200 contrast-200 backdrop-brightness-200" />
       <div className="justify-center bg-transparent md:py-6">
         <Image
@@ -29,9 +29,12 @@ export const Integration = () => (
         />
       </div>
       <LightSpeedLogo />
-      <XeroLogo />
+      <div className="pl-4">
+        <XeroLogo />
+      </div>
+
       <Sumup />
-      <DojoLogo className="invert" />
+      {/* <DojoLogo /> */}
       <div className="md:ml-[-2]">
         <Image
           src={Planday}

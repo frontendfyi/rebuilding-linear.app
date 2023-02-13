@@ -4,6 +4,7 @@ import { StarsIllustration } from "../components/icons/stars";
 import { Integration } from "../components/sections/Integration";
 import { HomepageHero } from "../components/sections/homepage-hero";
 import { UnlikeAnyTool } from "../components/sections/unlike-any-tool";
+import CallToAction from "../components/sections/CallToAction";
 
 export default function Homepage() {
   return (
@@ -28,7 +29,12 @@ export default function Homepage() {
       >
         <StarsIllustration />
       </div>
-      <UnlikeAnyTool />
+      <Container>
+        <UnlikeAnyTool />
+      </Container>
+      <Container>
+        <CallToAction />
+      </Container>
     </>
   );
 }
