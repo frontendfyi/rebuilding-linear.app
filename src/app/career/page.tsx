@@ -1,6 +1,5 @@
 import ContactForm from "../../components/ContactForm";
 import { Container } from "../../components/container";
-import supabase from "@/utils/supabase";
 
 export default function Success() {
   return (
@@ -13,7 +12,7 @@ export default function Success() {
           However if you are intrigued...go ahead👇🏻
         </p>
       </div>
-      <ContactForm supabase={supabase} props={undefined} />
+      <ContactForm />
     </Container>
   );
 }
