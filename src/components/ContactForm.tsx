@@ -6,7 +6,11 @@ import { Textarea } from "../components/ui/textarea";
 import { Button } from "./button";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
+<<<<<<< HEAD
 import { SupabaseClient } from "@supabase/supabase-js";
+=======
+import { Dialog, DialogContent, DialogTrigger } from "../components/ui/dialog";
+>>>>>>> parent of 1e02a34 (fixing contact form flow)
 import { useForm, UseFormProps, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -22,9 +26,20 @@ import { z } from "zod";
 import { Highlight } from "./button";
 import CompanyEmailValidator from "company-email-validator";
 import CalendlyWidget from "./CalendlyWidget";
+<<<<<<< HEAD
 import clsx from "clsx";
 import Script from "next/script";
 import { ChevronLeft } from "lucide-react";
+=======
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_KEY!,
+  {
+    global: { fetch: fetch.bind(globalThis) },
+  }
+);
+>>>>>>> parent of 1e02a34 (fixing contact form flow)
 
 function useZodForm<TSchema extends z.ZodType>(
   props: Omit<UseFormProps<TSchema["_input"]>, "resolver"> & {
@@ -81,7 +96,10 @@ export default function ContactForm({
   });
   const [isCompanyEmail, setIsCompanyEmail] = useState(false);
   const [message, setMessage] = useState("");
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 1e02a34 (fixing contact form flow)
   const onSubmit = methods.handleSubmit(async (data) => {
     setResult(data); // send to backend or smth
     if (!CompanyEmailValidator.isCompanyEmail(data.email)) {
@@ -104,26 +122,25 @@ export default function ContactForm({
 
   return (
     <>
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        type="text/javascript"
-      ></Script>
       <div className="flex min-h-screen translate-y-[-1rem] animate-fade-in flex-col items-center justify-center gap-3 py-2 opacity-0">
+<<<<<<< HEAD
         <h1 className="bg-hero-gradient bg-clip-text text-center text-4xl font-bold">
           {isCompanyEmail ? "Book a meeting" : "Contact Us"}{" "}
         </h1>
+=======
+        <h1 className="text-center text-4xl font-bold">Contact Us</h1>
+>>>>>>> parent of 1e02a34 (fixing contact form flow)
         <p className="text-center text-lg">
-          {isCompanyEmail
-            ? ""
-            : "We'd love to hear from you. Fill out the form below and we'll get back to you shortly."}
+          We&apos;d love to hear from you. Fill out the form below and
+          we&apos;ll get back to you shortly.
         </p>
-        <div className=" md:flex">
-          <div
-            className={
-              (clsx(`flex flex-col items-center justify-center gap-3`),
-              isCompanyEmail ? "hidden" : "block")
-            }
+        <div className="flex flex-col items-center justify-center gap-3">
+          <form
+            className="mt-8 flex w-full max-w-lg flex-col items-center justify-center"
+            action=""
+            onSubmit={onSubmit}
           >
+<<<<<<< HEAD
             <form
               className="mt-8 flex w-full max-w-lg flex-col items-center justify-center"
               action=""
@@ -184,50 +201,93 @@ export default function ContactForm({
                     </Select>
                   )}
                 />
+=======
+            <div className="mb-4 flex w-full flex-col gap-3">
+              <Label htmlFor="name">Name</Label>
+              <Input
+                className="border py-2 px-3 text-gray-700"
+                {...methods.register("name")}
+                type="text"
+                placeholder="Name"
+                id="name"
+                autoComplete="on"
+              />
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.name?.message}
+              </p>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                className="border py-2 px-3 text-gray-700"
+                type="email"
+                placeholder="Company Email"
+                id="email"
+                autoComplete="on"
+                {...methods.register("email")}
+              />
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.email?.message}
+                {!isCompanyEmail && message}
+              </p>
+              <Label htmlFor="message">What would you like us to know?</Label>
+              <Textarea
+                className="border py-2 px-3 text-gray-700"
+                id="message"
+                {...methods.register("text")}
+              />
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.text?.message}
+              </p>
+              <Label htmlFor="source">How did you hear about us?</Label>
+              <Controller
+                control={methods.control}
+                name="source"
+                render={({ field }) => (
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger className="bg-transparent">
+                      <SelectValue placeholder="Select a source" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.entries(SOURCE).map(([key, value]) => (
+                        <SelectItem key={key} value={value} id={value}>
+                          {value}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+>>>>>>> parent of 1e02a34 (fixing contact form flow)
 
-                <p className="font-medium text-red-500">
-                  {methods.formState.errors?.source?.message}
-                </p>
-
-                <Button
-                  type="submit"
-                  className="hover:[content='We will take you to schedule a meeting with us'] mt-4 items-center rounded bg-blue-500 py-3 px-4 text-center font-semibold text-white hover:bg-blue-700"
-                  variant="primary"
-                  size="large"
-                  id="submit"
-                >
-                  Submit
-                  <Highlight>
-                    <ChevronIcon />
-                  </Highlight>
-                </Button>
-              </div>
-            </form>
-          </div>
-          <div id="calendly" className="">
-            {" "}
-            {isCompanyEmail && (
-              <div className="flex flex-col gap-5">
-                <CalendlyWidget
-                  prefill={{
-                    name: result.name,
-                    email: result.email,
-                    date: new Date(Date.now() + 1000 * 60 * 60 * 24 * 2),
-                  }}
-                />
-                <Button
-                  href="/"
-                  variant="secondary"
-                  className=" h-[5vh] gap-5  bg-transparent"
-                >
-                  <Highlight>
-                    <ChevronLeft />
-                  </Highlight>
-                  Back to home page
-                </Button>
-              </div>
-            )}
-          </div>
+              <p className="font-medium text-red-500">
+                {methods.formState.errors?.source?.message}
+              </p>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    type="submit"
+                    className="hover:[content='We will take you to schedule a meeting with us'] mt-4 items-center rounded bg-blue-500 py-3 px-4 text-center font-semibold text-white hover:bg-blue-700"
+                    variant="primary"
+                    size="large"
+                    id="submit"
+                  >
+                    Submit
+                    <Highlight>
+                      <ChevronIcon />
+                    </Highlight>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <CalendlyWidget
+                    prefill={{
+                      name: result.name,
+                      email: result.email,
+                      date: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+                    }}
+                  />
+                </DialogContent>
+              </Dialog>
+            </div>
+          </form>
         </div>
       </div>
     </>

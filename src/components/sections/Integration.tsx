@@ -5,6 +5,7 @@ import { LightSpeedLogo } from "../logos/lightspeed";
 import { XeroLogo } from "../logos/xero";
 import { DojoLogo } from "../logos/dojo";
 import Planday from "../logos/planday.png";
+import { Sumup } from "../logos/sumup";
 
 export const Integration = () => (
   <div id="integration">
@@ -29,7 +30,8 @@ export const Integration = () => (
       </div>
       <LightSpeedLogo />
       <XeroLogo />
-      {/* <DojoLogo className="invert" /> */}
+      <Sumup />
+      <DojoLogo className="invert" />
       <div className="md:ml-[-2]">
         <Image
           src={Planday}
