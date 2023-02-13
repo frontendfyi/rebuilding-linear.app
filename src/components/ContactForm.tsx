@@ -6,15 +6,10 @@ import { Textarea } from "../components/ui/textarea";
 import { Button } from "./button";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
-import { Dialog, DialogContent, DialogTrigger } from "../components/ui/dialog";
-import {
-  useForm,
-  UseFormProps,
-  Controller,
-  useFieldArray,
-} from "react-hook-form";
+import { SupabaseClient } from "@supabase/supabase-js";
+import { useForm, UseFormProps, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CalendarDays } from "lucide-react";
+
 import {
   Select,
   SelectContent,
@@ -30,16 +25,6 @@ import CalendlyWidget from "./CalendlyWidget";
 import clsx from "clsx";
 import Script from "next/script";
 import { ChevronLeft } from "lucide-react";
-import Link from "next/link";
-import { HeroSubtitle, HeroTitle } from "./hero";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_KEY!,
-  {
-    global: { fetch: fetch.bind(globalThis) },
-  }
-);
 
 function useZodForm<TSchema extends z.ZodType>(
   props: Omit<UseFormProps<TSchema["_input"]>, "resolver"> & {
@@ -71,7 +56,13 @@ const schema = z.object({
   source: z.nativeEnum(SOURCE),
 });
 
-export default function ContactForm(props: any) {
+export default function ContactForm({
+  supabase,
+  props,
+}: {
+  supabase: SupabaseClient;
+  props: any;
+}) {
   const router = useRouter();
   const methods = useZodForm({
     schema,
@@ -90,7 +81,7 @@ export default function ContactForm(props: any) {
   });
   const [isCompanyEmail, setIsCompanyEmail] = useState(false);
   const [message, setMessage] = useState("");
-  useFieldArray;
+
   const onSubmit = methods.handleSubmit(async (data) => {
     setResult(data); // send to backend or smth
     if (!CompanyEmailValidator.isCompanyEmail(data.email)) {
@@ -98,7 +89,7 @@ export default function ContactForm(props: any) {
       setMessage("Um...enter a company email please?");
       return;
     } else if (CompanyEmailValidator.isCompanyEmail(data.email)) {
-      const { data: user_db, error } = await supabase.from("user_db").upsert([
+      const { data: user_db, error } = await supabase.from("user_db").insert([
         {
           user_email: data.email,
           user_name: data.name,
@@ -118,9 +109,9 @@ export default function ContactForm(props: any) {
         type="text/javascript"
       ></Script>
       <div className="flex min-h-screen translate-y-[-1rem] animate-fade-in flex-col items-center justify-center gap-3 py-2 opacity-0">
-        <HeroTitle className="text-center text-4xl font-bold">
+        <h1 className="bg-hero-gradient bg-clip-text text-center text-4xl font-bold">
           {isCompanyEmail ? "Book a meeting" : "Contact Us"}{" "}
-        </HeroTitle>
+        </h1>
         <p className="text-center text-lg">
           {isCompanyEmail
             ? ""
@@ -168,6 +159,7 @@ export default function ContactForm(props: any) {
                 <Textarea
                   className="border py-2 px-3 text-gray-700"
                   id="message"
+                  placeholder="Tell us about your venue, capacity, and technology (ex: EPOS system, inventory management software etc.)..."
                   {...methods.register("text")}
                 />
                 <p className="font-medium text-red-500">

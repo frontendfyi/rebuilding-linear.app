@@ -1,8 +1,7 @@
-import React from "react";
 import { Container } from "../../components/container";
 import ContactForm from "../../components/ContactForm";
 import Head from "next/head";
-import Script from "next/script";
+import supabase from "@/utils/supabase";
 
 export default function Contact() {
   return (
@@ -13,7 +12,7 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <ContactForm />
+        <ContactForm supabase={supabase} props={undefined} />
       </Container>
     </>
   );

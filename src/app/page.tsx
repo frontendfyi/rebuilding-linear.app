@@ -4,13 +4,14 @@ import { StarsIllustration } from "../components/icons/stars";
 import { Integration } from "../components/sections/Integration";
 import { HomepageHero } from "../components/sections/homepage-hero";
 import { UnlikeAnyTool } from "../components/sections/unlike-any-tool";
+import supabase from "@/utils/supabase";
 
 export default function Homepage() {
   return (
     <>
       <div className="overflow-hidden pb-[16.4rem] md:pb-[25.6rem]">
         <Container className="pt-[6.4rem]">
-          <HomepageHero />
+          <HomepageHero supabase={supabase} />
         </Container>
       </div>
       <Container>

@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { Container } from "../../components/container";
 import { StarsIllustration } from "../../components/icons/stars";
 import { HeroTitle } from "../../components/hero";
+import supabase from "@/utils/supabase";
 
 export default function Success() {
   return (
@@ -49,7 +50,7 @@ export default function Success() {
           </p>
         </div>
 
-        <ContactForm />
+        <ContactForm supabase={supabase} props={undefined} />
       </div>
     </Container>
   );

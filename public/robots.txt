@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://projectwaitless.io/sitemap.xml

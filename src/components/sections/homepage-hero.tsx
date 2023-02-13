@@ -7,20 +7,11 @@ import { HeroImage } from "../hero-image";
 import { ChevronIcon } from "../icons/chevron";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-//import { supabase } from "../../utils/supabase";
 import { useState } from "react";
 import { z } from "zod";
 import CompanyEmailValidator from "company-email-validator";
-import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_KEY!,
-  {
-    global: { fetch: fetch.bind(globalThis) },
-  }
-);
+import { SupabaseClient } from "@supabase/supabase-js";
 
 function useZodForm<TSchema extends z.ZodType>(
   props: Omit<UseFormProps<TSchema["_input"]>, "resolver"> & {
@@ -41,7 +32,7 @@ const schema = z.object({
     .email("This is not a valid email."),
 });
 
-export const HomepageHero = () => {
+export const HomepageHero = ({ supabase }: { supabase: SupabaseClient }) => {
   const router = useRouter();
   const methods = useZodForm({
     schema,
@@ -56,7 +47,7 @@ export const HomepageHero = () => {
       setMessage("Um...enter a company email please?");
       return;
     } else if (CompanyEmailValidator.isCompanyEmail(data.email)) {
-      const { data: user_db, error } = await supabase
+      const { error } = await supabase
         .from("user_db")
         .upsert([{ user_email: data.email }]);
       setIsCompanyEmail(true);
