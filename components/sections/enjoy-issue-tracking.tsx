@@ -62,13 +62,14 @@ export const EnjoyIssueTracking = () => {
         features={[
           {
             image: "/card-board.webp",
-            imageClassName: "top-[40%] w-[200%]",
+            imageClassName: "top-[55%] md:top-[40%] w-[200%]",
             title: "List and board",
             text: "Switch between list and board layout to view work from any angle.",
           },
           {
             image: "/card-views.webp",
-            imageClassName: "top-[34%] left-[24px] w-[110%]",
+            imageClassName:
+              "top-[45%] left-[12px] md:top-[34%] md:left-[24px] w-[110%]",
             title: "Make it yours",
             text: "Quickly apply filters and operators to refine your issue lists and create custom views.",
           },
