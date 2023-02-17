@@ -15,9 +15,9 @@ module.exports = {
       "3xl": "2.6rem",
       "4xl": "3.2rem",
       "5xl": "4rem",
-      "6xl": ["4.4rem", "1"],
-      "7xl": ["4.8rem", "1"],
-      "8xl": ["8rem", "1"],
+      "6xl": ["4.4rem", "1.1"],
+      "7xl": ["4.8rem", "1.1"],
+      "8xl": ["8rem", "1.1"],
     },
     colors: {
       transparent: "transparent",
@@ -45,6 +45,8 @@ module.exports = {
       12: "4.8rem",
       13: "5.2rem",
       14: "5.6rem",
+      15: "6rem",
+      16: "6.4rem",
       "navigation-height": "var(--navigation-height)",
     },
     backgroundImage: {
