@@ -10,27 +10,19 @@ import { createServerClient } from "../utils/supabase-server";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <meta
-          name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1"
-        />
-      </head>
-      <body className="font-[inter] antialiased">
-        <div>
-          <Header />
+    <body className="font-[inter] antialiased">
+      <div>
+        <Header />
 
-          <main className="bg-page-gradient pt-navigation-height">
-            {children}
-          </main>
+        <main className="bg-page-gradient pt-navigation-height">
+          {children}
+        </main>
 
-          <Footer />
-          {/* <CopyrightLinearBanner /> */}
-        </div>
+        <Footer />
+        {/* <CopyrightLinearBanner /> */}
+      </div>
 
-        <AnalyticsWrapper />
-      </body>
-    </html>
+      <AnalyticsWrapper />
+    </body>
   );
 }
