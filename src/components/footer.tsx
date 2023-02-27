@@ -22,6 +22,7 @@ const footerLinks = [
       { title: "Blog", href: "/blog" },
       { title: "Careers", href: "/career" },
       //  { title: "Customers", href: "/customers" },
+      { title: "Brand", href: "/brand" },
     ],
   },
   {
