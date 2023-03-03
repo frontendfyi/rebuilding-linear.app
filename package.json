@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.10",
@@ -29,6 +30,7 @@
     "js-cookie": "^3.0.1",
     "lucide-react": "^0.112.0",
     "next": "^13.1.6",
+    "next-sitemap": "^4.0.1",
     "react": "18.2.0",
     "react-calendly": "^4.1.1",
     "react-dom": "18.2.0",
