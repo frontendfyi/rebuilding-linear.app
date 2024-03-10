@@ -22,7 +22,7 @@ const buttonClasses = cva("relative rounded-full inline-flex items-center", {
   variants: {
     variant: {
       primary: [
-        "bg-primary-gradient hover:text-shadow hover:shadow-primary transition-[shadow,text-shadow]",
+        "bg-primary-gradient hover:text-shadow hover:shadow-primary transition-[box-shadow,text-shadow]",
         "[&_.highlight]:ml-2",
       ],
       secondary: [
