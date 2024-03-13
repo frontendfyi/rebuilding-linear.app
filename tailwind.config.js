@@ -48,6 +48,8 @@ module.exports = {
       15: "6rem",
       16: "6.4rem",
       "navigation-height": "var(--navigation-height)",
+      "container-padding": "var(--container-padding)",
+      "container-max-width": "var(--container-max-width)",
     },
     backgroundImage: {
       "primary-gradient":
